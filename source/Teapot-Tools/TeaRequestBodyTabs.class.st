@@ -40,7 +40,6 @@ TeaRequestBodyTabs >> label [
 
 { #category : #initialization }
 TeaRequestBodyTabs >> newRequestBody [
-
 	raw := self newText
 		autoAccept: true;
 		yourself.
@@ -50,12 +49,12 @@ TeaRequestBodyTabs >> newRequestBody [
 			(self newTab
 				label: self rawTabTitle;
 				closeable: false;
-				model: raw);
+				presenter: raw);
 		addTab:
 			(self newTab
 				label: self formTabTitle;
 				closeable: false;
-				model: form);
+				presenter: form);
 		whenTabSelected: [ :selected | 
 			selected label = self formTabTitle
 				ifTrue: [ form updateKeyValus: ('?' , raw text) asUrl query ]
